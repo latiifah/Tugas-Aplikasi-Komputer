@@ -1,0 +1,2280 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{eumat}
+
+\begin{document}
+\begin{eulernotebook}
+\eulersubheading{}
+\eulerheading{BAB 7 FUNGSI MULTIVARIABEL}
+\begin{eulercomment}
+Dibuat Oleh :
+
+NAMA  : LATIFAH NURFITRIYANI\\
+KELAS : MATEMATIKA E\\
+NIM   : 22305141010
+
+\end{eulercomment}
+\eulersubheading{}
+\begin{eulercomment}
+CAKUPAN MATERI MELIPUTI DIANTARANYA :
+
+BAB 7. FUNGSI MULTIVARIABEL\\
+\end{eulercomment}
+\begin{eulerttcomment}
+       # Definisi Fungsi Multivariabel
+       A. TURUNAN FUNGSI MULTIVARIABEL
+          1. TURUNAN FUNGSI ALJABAR
+          2. TURUNAN FUNGSI NON ALJABAR (transenden)
+             2.1 Turunan Fungsi Trigonometri
+             2.2 Turunan Fungsi Eksponensial
+             2.3 Turunan Fungsi Logaritma
+          3. TURUNAN FUNGSI KOMPOSISI
+       B. INTEGRAL FUNGSI MULTIVARIBAEL
+          1. INTERGAL FUNGSI ALJABAR
+          2. INTERGAL FUNGSI NON ALJABAR
+             2.1 Integral Fungsi Trigonometri
+             2.2 Integral Fungsi Eksponensial
+             2.3 Integral Fungsi Logaritma
+          3. INTERGAL FUNGSI KOMPOSISI
+       C. APLIKASI FUNGSI MULTIVARIABEL
+\end{eulerttcomment}
+\eulersubheading{}
+\begin{eulercomment}
+# Definisi\\
+\end{eulercomment}
+\begin{eulerttcomment}
+  Fungsi multivariabel adalah fungsi yang memiliki lebih dari satu
+\end{eulerttcomment}
+\begin{eulercomment}
+variabel bebas. Fungsi multivariabel memetakan setiap kombinasi nilai
+dari variabel-variabel bebas ke dalam nilai tunggal dari variabel
+terikat.
+
+# Sebelum melakukan perhitungan, fungsi harus didefinisikan di EMT
+dengan:
+
+- Menggunakan format nama\_fungsi := rumus fungsi (untuk fungsi
+numerik),\\
+- Menggunakan format nama\_fungsi \&= rumus fungsi (untuk fungsi
+simbolik, namun dapat dihitung secara numerik),\\
+- Menggunakan format nama\_fungsi \&\&= rumus fungsi (untuk fungsi
+simbolik murni, tidak dapat dihitung langsung),\\
+- Fungsi sebagai program EMT.
+
+Setiap format harus diawali dengan perintah function (bukan sebagai
+ekspresi).
+
+\begin{eulercomment}
+\eulerheading{A. Turunan Fungsi Multivariabel}
+\begin{eulercomment}
+\begin{eulercomment}
+\eulerheading{1. Turunan Fungsi Aljabar}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerttcomment}
+ 1) Definisi
+    Turunan fungsi aljabar multivariabel adalah turunan yang dihitung
+\end{eulerttcomment}
+\begin{eulercomment}
+terhadap satu variabel bebas dari fungsi multivariabel, dengan
+mempertahankan variabel bebas lainnya tetap konstan. Turunan fungsi
+aljabar multivariabel dapat diekspresikan dalam bentuk umum dengan
+menggunakan turunan parsial. Untuk fungsi
+
+\end{eulercomment}
+\begin{eulerformula}
+\[
+F(x_1,x_2,...,x_n)
+\]
+\end{eulerformula}
+\begin{eulercomment}
+di mana n adalah jumlah variabel, turunan parsial dapat dinyatakan
+sebagai berikut:
+
+\end{eulercomment}
+\begin{eulerformula}
+\[
+F' = \frac {\partial {f}} {\partial {x_1}}, \frac {\partial {f}} {\partial {x_2}},..., \frac {\partial {f}} {\partial {x_n}}
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerttcomment}
+   Pada perhitungan turunan di EMT dapat menggunakan fungsi "diff".
+\end{eulerttcomment}
+\begin{eulercomment}
+2) Contoh dan Visualisasi Grafik
+\end{eulercomment}
+\begin{eulerprompt}
+> function F(x,y) &= x^2 + 3*x*y - y^2; $F(x,y)
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+-y^2+3\,x\,y+x^2
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> $showev('diff(F(x,y),x))
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\frac{d}{d\,x}\,\left(-y^2+3\,x\,y+x^2\right)=3\,y+2\,x
+\]
+\end{eulerformula}
+\begin{eulerttcomment}
+   Pembuktian:
+\end{eulerttcomment}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+F(x,y) = x^2 + 3xy - y^2
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+F_x = 2x + 3y - 0
+\]
+\end{eulerformula}
+\begin{eulerformula}
+\[
+F_x = 2x + 3y
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> plot3d("F(x,y)"): // grafik fungsi
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-008.png}
+\begin{eulerprompt}
+> plot3d("2x + 3y",angle=45°): // grafik turunan
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-009.png}
+\begin{eulerprompt}
+> function F(x,y) &= 3*x^2*y + y^3 + x^3*y; $F(x,y)
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+y^3+x^3\,y+3\,x^2\,y
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> $showev('diff(F(x,y),y))
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\frac{d}{d\,y}\,\left(y^3+x^3\,y+3\,x^2\,y\right)=3\,y^2+x^3+3\,x^2
+\]
+\end{eulerformula}
+\begin{eulerttcomment}
+   Pembuktian:
+\end{eulerttcomment}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+F(x,y,z) = 3x^2y + y^3 + x^3y
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+F_y = 3x^2 + 3y^{3-1} + x^3
+\]
+\end{eulerformula}
+\begin{eulerformula}
+\[
+F_x = 3x^2 + 3y^2+ x^3
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> plot3d("F(x,y)"): // grafik fungsi
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-015.png}
+\begin{eulerprompt}
+> plot3d("3*x^2 + 3*y^2 + x^3"): // grafik turunan
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-016.png}
+\begin{eulerprompt}
+> function F(x,y,z) &= x^4*z^3 + 4*y^2 - z^2; $F(x,y,z)
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+x^4\,z^3-z^2+4\,y^2
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> $showev('diff(F(x,y,z),z))
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\frac{d}{d\,z}\,\left(x^4\,z^3-z^2+4\,y^2\right)=3\,x^4\,z^2-2\,z
+\]
+\end{eulerformula}
+\begin{eulerttcomment}
+   Pembuktian:
+\end{eulerttcomment}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+F(x,y) = x^4z^3 + 4y^2 - z^2
+\]
+\end{eulerformula}
+\begin{eulerformula}
+\[
+F_z = 3x^4z^{3-1} + 4.0 - 2z^{2-1}
+\]
+\end{eulerformula}
+\begin{eulerformula}
+\[
+F_z = 3x^4z^2 - 2z
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerttcomment}
+   # Pada penggambaran grafik menggunakan fungsi implicit
+ Fungsi implisit (implicit function) adalah fungsi yang memuat lebih
+\end{eulerttcomment}
+\begin{eulercomment}
+dari satu variabel, berjenis variabel bebas dan variabel terikat yang
+berada dalam satu ruas sehingga tidak bisa dipisahkan pada ruas yang
+berbeda.
+\end{eulercomment}
+\begin{eulerprompt}
+> plot3d("F(x,y,z)",r=0.5,implicit=1,contourcolor=blue): // grafik fungsi
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-022.png}
+\begin{eulerprompt}
+> plot3d("3*x^4*z^2-2*z",r=0.5,implicit=1,contourcolor=cyan): // grafik turunan
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-023.png}
+\begin{eulercomment}
+\begin{eulercomment}
+\eulerheading{2. Turunan Fungsi Non Aljabar}
+\begin{eulercomment}
+\end{eulercomment}
+\eulersubheading{2.1 Turunan Fungsi Trigonometri}
+\begin{eulercomment}
+1) Definisi\\
+\end{eulercomment}
+\begin{eulerttcomment}
+   Turunan fungsi trigonometri multivariabel melibatkan penghitungan
+\end{eulerttcomment}
+\begin{eulercomment}
+turunan parsial fungsi trigonometri yang memiliki lebih dari satu
+variabel masukan.
+
+2) Contoh dan Visualisasi Grafik
+\end{eulercomment}
+\begin{eulerprompt}
+> function F(x,y) &= cos(x)*sin(y); $F(x,y)
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\cos x\,\sin y
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> $showev('diff(F(x,y),y))
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\frac{d}{d\,y}\,\left(\cos x\,\sin y\right)=\cos x\,\cos y
+\]
+\end{eulerformula}
+\begin{eulerttcomment}
+   Pembutkian:
+\end{eulerttcomment}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+F(x,y) = cos(x)sin(y)
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+F_y = cos(x)cos(y)
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> plot3d("F(x,y)"): // grafik fungsi
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-028.png}
+\begin{eulerprompt}
+> plot3d("cos(x)*cos(y)"): // grafik turunan
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-029.png}
+\begin{eulerprompt}
+> function F(x,y) &= cos(x) - 2*sin(x)*cos(y); $F(x,y)
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\cos x-2\,\sin x\,\cos y
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> $showev('diff(F(x,y),x))
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\frac{d}{d\,x}\,\left(\cos x-2\,\sin x\,\cos y\right)=-2\,\cos x\,  \cos y-\sin x
+\]
+\end{eulerformula}
+\begin{eulerttcomment}
+   Pembuktian:
+\end{eulerttcomment}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+F(x,y) = cos(x) - 2sin(x)cos(y)
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+F_x = -sin(x) - 2cos(x)cos(y)
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> plot3d("F(x,y)"): // grafik fungsi
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-034.png}
+\begin{eulerprompt}
+> plot3d("-sin(x)-2*cos(x)*cos(y)"): // grafik turunan
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-035.png}
+\begin{eulercomment}
+\end{eulercomment}
+\eulersubheading{2.2 Turunan Fungsi Eksponensial}
+\begin{eulercomment}
+1) Definisi\\
+\end{eulercomment}
+\begin{eulerttcomment}
+   Turunan fungsi eksponensial multivariabel adalah turunan parsial
+\end{eulerttcomment}
+\begin{eulercomment}
+dari fungsi yang mengandung fungsi eksponensial dan memiliki lebih
+dari satu variabel independen. 
+
+2) Contoh dan Visualisasi Grafik
+\end{eulercomment}
+\begin{eulerprompt}
+> function f(x,y) &= E^(x*y); $f(x,y)
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+e^{x\,y}
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> $showev('diff(f(x,y),x))
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\frac{d}{d\,x}\,e^{x\,y}=y\,e^{x\,y}
+\]
+\end{eulerformula}
+\begin{eulerttcomment}
+   Pembuktian:
+\end{eulerttcomment}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+f(x,y) = e^{xy}
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+[e^{u(x)}]' = e^{u(x)} . u'(x)
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+f_x = e^{xy} . 1 . y
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= ye^{xy}
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> plot3d("f(x,y)"): // grafik fungsi
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-042.png}
+\begin{eulerprompt}
+> plot3d("y*E^(x*y)"): // grafik turunan
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-043.png}
+\begin{eulerprompt}
+> function g(x,y) &= E^(x*y^2+x^2*y); $g(x,y)
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+e^{x\,y^2+x^2\,y}
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> $showev('diff(g(x,y),y))
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\frac{d}{d\,y}\,e^{x\,y^2+x^2\,y}=\left(2\,x\,y+x^2\right)\,e^{x\,y  ^2+x^2\,y}
+\]
+\end{eulerformula}
+\begin{eulerttcomment}
+   Pembuktian:
+\end{eulerttcomment}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+g(x,y) = e^{xy^2+x^2y}
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+g_y = e^{xy^2+x^2y} . x . 2y^{2-1} + x^2 . 1
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= (2xy + x^2)e^{xy^2+x^2y}
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> plot3d("g(x,y)"): // grafik fungsi
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-049.png}
+\begin{eulerprompt}
+> plot3d("(2*x*y+x^2)*E^(x*y^2+x^2*y)"): // grafik turunan
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-050.png}
+\begin{eulercomment}
+\end{eulercomment}
+\eulersubheading{2.3 Turunan Fungsi Logaritma}
+\begin{eulercomment}
+1) Definisi\\
+\end{eulercomment}
+\begin{eulerttcomment}
+   Turunan fungsi logaritma multivariabel adalah konsep dalam kalkulus
+\end{eulerttcomment}
+\begin{eulercomment}
+multivariabel yang berkaitan dengan perhitungan turunan parsial dari
+fungsi yang mengandung logaritma alami (logaritma basis e, sering
+dilambangkan sebagai ln) dan memiliki lebih dari satu variabel
+independen.
+
+2) Contoh dan Visualisasi Grafik
+\end{eulercomment}
+\begin{eulerprompt}
+> function f(x,y) &= ln(x*y); $f(x,y)
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\log \left(x\,y\right)
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> $showev('diff(f(x,y),x))
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\frac{d}{d\,x}\,\log \left(x\,y\right)=\frac{1}{x}
+\]
+\end{eulerformula}
+\begin{eulerttcomment}
+   Pembuktian:
+\end{eulerttcomment}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+f(x,y) = ln(xy)
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+[ln(u(x))]' = \frac {1} {u(x)} . u'(x)
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+f_x = \frac {1} {xy} . 1.y
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= \frac {1} {x}
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> plot3d("f(x,y)", angle=90°): // grafik fungsi
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-057.png}
+\begin{eulerprompt}
+> plot3d("1/x", angle = 180°): // grafik turunan
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-058.png}
+\begin{eulerprompt}
+> function k(x,y) &= ln(x^2+y^2); $k(x,y)
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\log \left(y^2+x^2\right)
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> $showev('diff(k(x,y),y))
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\frac{d}{d\,y}\,\log \left(y^2+x^2\right)=\frac{2\,y}{y^2+x^2}
+\]
+\end{eulerformula}
+\begin{eulerttcomment}
+   Pembuktian:
+\end{eulerttcomment}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+k(x,y) = ln(x^2 + y^2)
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+k_y = \frac {1} {x^2 + y^2} . (0 + 2y^{2-1})
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= \frac {1} {x^2 + y^2} . 2y
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= \frac {2y} {x^2 + y^2}
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> plot3d("k(x,y)"): // grafik fungsi
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-065.png}
+\begin{eulerprompt}
+> plot3d("(2*y)/(x^2+y^2)"): // grafik turunan
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-066.png}
+\begin{eulerprompt}
+> function h(x,y,z) &= (ln(x^2+y^2+z^2))/2; $h(x,y,z)
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\frac{\log \left(z^2+y^2+x^2\right)}{2}
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> $showev('diff(h(x,y,z),z))
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\frac{d}{d\,z}\,\left(\frac{\log \left(z^2+y^2+x^2\right)}{2}  \right)=\frac{z}{z^2+y^2+x^2}
+\]
+\end{eulerformula}
+\begin{eulerttcomment}
+   Pembuktian:
+\end{eulerttcomment}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+h(x,y,z) = \frac {ln(x^2+y^2+z^2)} {2}
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+h_z = \frac {1} {2} . \frac {d} {dz} [ln(x^2+y^2+z^2)]
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= \frac {\frac {1} {x^2+y^2+z^2} (0+0+2z)} {2}
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= \frac {2z} {2(x^2+y^2+z^2)}
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= \frac {z} {x^2+y^2+z^2}
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerttcomment}
+   # Pada penggambaran grafik menggunakan fungsi implicit
+ Fungsi implisit (implicit function) adalah fungsi yang memuat lebih
+\end{eulerttcomment}
+\begin{eulercomment}
+dari satu variabel, berjenis variabel bebas dan variabel terikat yang
+berada dalam satu ruas sehingga tidak bisa dipisahkan pada ruas yang
+berbeda.
+\end{eulercomment}
+\begin{eulerprompt}
+> plot3d("h(x,y,z)",r=1,implicit=2,contourcolor=red): // grafik fungsi
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-074.png}
+\begin{eulerprompt}
+> plot3d("z/(x^2+y^2+z^2)",r=1,implicit=2,contourcolor=orange): // grafik turunan
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-075.png}
+\begin{eulercomment}
+\begin{eulercomment}
+\eulerheading{3. Turunan Fungsi Komposisi}
+\begin{eulercomment}
+1) Definisi\\
+\end{eulercomment}
+\begin{eulerttcomment}
+   Turunan fungsi komposisi multivariabel adalah konsep dalam kalkulus
+\end{eulerttcomment}
+\begin{eulercomment}
+multivariabel yang berkaitan dengan perhitungan turunan dari fungsi
+yang merupakan hasil komposisi dari dua atau lebih fungsi.
+
+2) Contoh dan Visualisasi Grafik
+\end{eulercomment}
+\begin{eulerprompt}
+> function g(x,y) &= 2*x^2 + 3*y; $g(x,y)
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+3\,y+2\,x^2
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> function f(x,y) &= x^2 - y; $f(x,y)
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+x^2-y
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> $showev('diff(g(f(x,y),y),x))
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\frac{d}{d\,x}\,\left(3\,y+2\,\left(x^2-y\right)^2\right)=8\,x\,  \left(x^2-y\right)
+\]
+\end{eulerformula}
+\begin{eulerttcomment}
+   Pembuktian:
+\end{eulerttcomment}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+g'(f(x,y),y) = 2(x^2 - y)^2 + 3y
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= 2.2(x^2 - y)(2x - 0) + 0
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= 4(2x)(x^2 - y)
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= 8x(x^2 - y)
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> plot3d("g(x,y)"): // grafik fungsi g(x,y)
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-083.png}
+\begin{eulerprompt}
+> plot3d("f(x,y)"): // grafik fungsi f(x,y)
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-084.png}
+\begin{eulerprompt}
+> plot3d("8*x*(x^2-y)"): // grafik turunan
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-085.png}
+\begin{eulerprompt}
+> function h(x,y) &= 3*x + x*y^2; $h(x,y)
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+x\,y^2+3\,x
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> function j(x,y) &= 7*x*y^3; $j(x,y)
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+7\,x\,y^3
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> $showev('diff(h(x,j(x,y)),y))
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\frac{d}{d\,y}\,\left(49\,x^3\,y^6+3\,x\right)=294\,x^3\,y^5
+\]
+\end{eulerformula}
+\begin{eulerttcomment}
+   Pembuktian:
+\end{eulerttcomment}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+h'(x,j(x,y)) = 3x + x(7xy^3)^2
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+h'(x,j(x,y)) = 3x + 49x^3y^6
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= 0 + 49x^3(6y^{6-1})
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= 294x^3y^5
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> plot3d("h(x,y)"): // grafik fungsi h(x,y)
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-093.png}
+\begin{eulerprompt}
+> plot3d("j(x,y)"): // grafik fungsi j(x,y)
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-094.png}
+\begin{eulerprompt}
+> plot3d("294*x^3*y^5"): // grafik turunan
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-095.png}
+\begin{eulercomment}
+\begin{eulercomment}
+\eulerheading{B. Integral Fungsi Multivariabel}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerttcomment}
+ # Definisi
+   Integral fungsi multivariabel merupakan bentuk operasi matematika
+\end{eulerttcomment}
+\begin{eulercomment}
+yang merupakan kebalikan dari operasi turunan dan limit dari jumlah
+ataupun suatu luas. Integral lipat merupakan integral tentu dari
+fungsi variabel real banyak, seperti f(x, y) atau f(x, y, z).
+
+\end{eulercomment}
+\begin{eulerttcomment}
+    # Integral Ganda
+\end{eulerttcomment}
+\begin{eulercomment}
+
+\end{eulercomment}
+\begin{eulerformula}
+\[
+\int \int f(x,y) dV
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerttcomment}
+    # Integral Tiga Kali Lipat
+\end{eulerttcomment}
+\begin{eulerformula}
+\[
+\int \int \int f(x,y,z) dV
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerttcomment}
+  dV merupakan elemen diferensial yang menunjukkan bahwa Anda
+\end{eulerttcomment}
+\begin{eulercomment}
+melakukan integrasi terhadap suatu variabel. Misalkan dx menunjukkan
+integral terhadap variabel x, dy menunjukkan integral terhadap
+variabel y, dan dz menunjukkan integral terhadap variabel variabel z.
+
+\begin{eulercomment}
+\eulerheading{1. Integral Fungsi Aljabar}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerttcomment}
+ # Definisi
+   Integral fungsi aljabar multivariabel adalah suatu bentuk integral
+\end{eulerttcomment}
+\begin{eulercomment}
+yang didefinisikan oleh fungsi aljabar yang melibatkan dua atau lebih
+variabel.
+
+\end{eulercomment}
+\begin{eulerttcomment}
+ # Contoh dan Visualisasi Grafik
+\end{eulerttcomment}
+\begin{eulercomment}
+
+1) Integral Tentu
+\end{eulercomment}
+\begin{eulerprompt}
+> function f(x,y) &= 2*x^2*y + 3*x*y; $f(x,y)
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+2\,x^2\,y+3\,x\,y
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> $showev('integrate(f(x,y),x,0,2))
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\int_{0}^{2}{2\,x^2\,y+3\,x\,y\;dx}=\frac{34\,y}{3}
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> $showev('integrate(('integrate(f(x,y),x,0,2)),y,0,3))
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\int_{0}^{3}{\int_{0}^{2}{2\,x^2\,y+3\,x\,y\;dx}\;dy}=51
+\]
+\end{eulerformula}
+\begin{eulerttcomment}
+   Pembuktian:
+\end{eulerttcomment}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerttcomment}
+     # dx
+\end{eulerttcomment}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+\int_0^2 (2x^2y + 3xy) dx
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= 2y \int_0^2 x^2 dx + 3y \int_0^2 x dx
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+\int x^n dx = \frac {x^{n+1}} {n+1}
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= 2y \left [\frac {x^{2+1}} {2+1} \right]_0^2 + 3y \left [\frac {x^{1+1}} {1+1} \right]_0^2
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= \left [\frac {2x^3y} {3} \right]_0^2 + \left [\frac {3x^2y} {2} \right]_0^2
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= \frac {16y} {3} + 6y
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= \frac {16y + 18y} {3}
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= \frac {34y} {3}
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerttcomment}
+     # dy
+\end{eulerttcomment}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+\int_0^3 \frac {34y} {3} dy
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= \frac {34} {3} \int_0^3 ydy
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= \frac {34} {3} \left[\frac {y^2} {2} \right]_0^3
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= \frac {34} {3} \times \frac {9} {2}
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= 17 \times 3
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= 51
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> plot3d("f(x,y)"): // grafik 
+\end{eulerprompt}
+\eulerimg{40}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-115.png}
+\begin{eulerprompt}
+> function k(x,y) &= 4*y^3 - 2*x*y^2; $k(x,y)
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+4\,y^3-2\,x\,y^2
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> $showev('integrate(k(x,y),y,0,2))
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\int_{0}^{2}{4\,y^3-2\,x\,y^2\;dy}=\frac{48-16\,x}{3}
+\]
+\end{eulerformula}
+\begin{eulerttcomment}
+   Pembuktian:
+\end{eulerttcomment}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+\int_0^2 (4y^3-2xy^2) dy
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= 4 \int_0^2 y^3 dy - 2x \int_0^2 y^2 dy
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= 4 \frac {y^{3+1}} {3+1}|_0 ^2 - 2x \frac {y^{2+1}} {2+1} |_0^2
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= \frac {4y^4} {4} |_0 ^2 - \frac {2xy^3} {3} |_0 ^2
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= y^4 |_0 ^2 - \frac {2xy^3} {3} |_0 ^2
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= (2^4 - 0^4) - (\frac {2x.2^3} {3} - \frac {2x.0^3} {3})
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= 16 - \frac {16x} {3}
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= \frac {48 - 16x} {3}
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> plot3d("k(x,y)",>contour,color=blue): // grafik
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-126.png}
+\begin{eulercomment}
+2) Integral Tak Tentu
+\end{eulercomment}
+\begin{eulerprompt}
+> function g(x,y,z) &= 4*z^3 - 2*x*y^2*z; $g(x,y,z)
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+4\,z^3-2\,x\,y^2\,z
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> $showev('integrate(g(x,y,z),z))
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\int {4\,z^3-2\,x\,y^2\,z}{\;dz}=z^4-x\,y^2\,z^2
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> $showev('integrate(('integrate(g(x,y,z),z)),y))
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\int {\int {4\,z^3-2\,x\,y^2\,z}{\;dz}}{\;dy}=y\,z^4-\frac{x\,y^3\,  z^2}{3}
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> $showev('integrate(('integrate(('integrate(g(x,y,z),x)),z)),y))
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\int {\int {\int {4\,z^3-2\,x\,y^2\,z}{\;dx}}{\;dz}}{\;dy}=x\,y\,z^  4-\frac{x^2\,y^3\,z^2}{6}
+\]
+\end{eulerformula}
+\begin{eulerttcomment}
+   Pembtuktian:
+\end{eulerttcomment}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerttcomment}
+ # dz
+\end{eulerttcomment}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+\int 4z^3 - 2xy^2z dz
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= 4 \int z^3 dz - 2xy^2 \int  z dz
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= 4 (\frac {z^{3+1}} {3+1}) - 2xy^2 (\frac {z^{1+1}} {1+1})
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= z^4 - 2xy^2z^2
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerttcomment}
+ # dy
+\end{eulerttcomment}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+\int z^4 - 2xy^2z^2 dy
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= z^4 \int 1 dy - 2xz^2 \int y^2 dy
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= yz^4 - 2xz^2 \frac {y^{2+1}} {2+1}
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= yz^4 - \frac {2xy^3z^2} {3}
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerttcomment}
+ # dx
+\end{eulerttcomment}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+\int yz^4 - \frac {2xy^3z^2} {3} dx
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= yz^4 \int 1 dx - \frac {2y^3z^2} {3} \int x dx
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= xyz^4 - \frac {2y^3z^2} {3} \frac {x^{1+1}} {1+1}
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= xyz^4 - \frac {x^2y^3z^2} {3}
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> plot3d("g(x,y,z)",>contour,color=red): // grafik
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-143.png}
+\begin{eulercomment}
+\begin{eulercomment}
+\eulerheading{2. Integral Fungsi Non Aljabar}
+\begin{eulercomment}
+\end{eulercomment}
+\eulersubheading{2.1 Integral Fungsi Trigonometri}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerttcomment}
+ # Definisi
+   Integral fungsi trigonometri multivariabel adalah bentuk integral
+\end{eulerttcomment}
+\begin{eulercomment}
+yang melibatkan fungsi trigonometri yang melibatkan dua atau lebih
+variabel. Integral ini dapat dihitung dengan menggunakan teknik-teknik
+kalkulus seperti integral ganda dan integral tiga kali lipat.
+
+\end{eulercomment}
+\begin{eulerttcomment}
+ # Contoh dan Visualisasi Grafik
+\end{eulerttcomment}
+\begin{eulercomment}
+
+1) Integral Tentu
+\end{eulercomment}
+\begin{eulerprompt}
+> function f(x,y) &= cos(x) - sin(y); $f(x,y)
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\cos x-\sin y
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> $showev('integrate(f(x,y),y,-1,1))
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\int_{-1}^{1}{\cos x-\sin y\;dy}=2\,\cos x
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> $showev('integrate(('integrate(f(x,y),y,-2,2)),y,-1,1))
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\int_{-1}^{1}{\int_{-2}^{2}{\cos x-\sin y\;dy}\;dy}=8\,\cos x
+\]
+\end{eulerformula}
+\begin{eulerttcomment}
+   Pembuktian:
+\end{eulerttcomment}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerttcomment}
+ # Langkah 1
+\end{eulerttcomment}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+\int_{-1}^1 (cos(x) - sin(y)) dy
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= cos(x) \int_{-1}^1 1 dy - \int_{-1}^1 sin(y) dy
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= cos(x) y|_{-1}^1 - (- cos(y))|_{-1}^1
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= cos(x) (1 - (-1)) + cos(1) - cos(-1)
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= cos(x)(2) + 0
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= 2cos(x)
+\]
+\end{eulerformula}
+\begin{eulercomment}
+# Langkah 2
+
+\end{eulercomment}
+\begin{eulerformula}
+\[
+\int_{-2}^2 2cos(x) dy
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= 2cos(x) \int_{-2}^2 1 dy
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= 2cos(x) (y)|_{-2}^2
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= 2cos(x) (2 - (-2))
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= 8cos(x)
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> plot3d("f(x,y)"): // grafik
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-158.png}
+\begin{eulercomment}
+2) Integral Tak Tentu
+\end{eulercomment}
+\begin{eulerprompt}
+> function g(x,y) &= cos(4*x*y); $g(x,y)
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\cos \left(4\,x\,y\right)
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> $showev('integrate(g(x,y),x))
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\int {\cos \left(4\,x\,y\right)}{\;dx}=\frac{\sin \left(4\,x\,y  \right)}{4\,y}
+\]
+\end{eulerformula}
+\begin{eulerttcomment}
+   Pembuktian:
+\end{eulerttcomment}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+\int cos(4xy) dx
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerttcomment}
+ misalkan u = 4xy maka
+\end{eulerttcomment}
+\begin{eulerformula}
+\[
+\frac {du} {dx} = 4y
+\]
+\end{eulerformula}
+\begin{eulerformula}
+\[
+dx = \frac {1} {4y} du
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= \frac {1} {4y} \int cos(u) du
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= \frac {1} {4y} . sin(u)
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= \frac {sin(u)} {4y}
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerttcomment}
+ subtitusi u = 4xy
+\end{eulerttcomment}
+\begin{eulerformula}
+\[
+= \frac {sin(4xy)} {4y}
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> $showev('integrate(('integrate(g(x,y),x)),x))
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\int {\int {\cos \left(4\,x\,y\right)}{\;dx}}{\;dx}=-\frac{\cos   \left(4\,x\,y\right)}{16\,y^2}
+\]
+\end{eulerformula}
+\begin{eulerttcomment}
+   Pembuktian:
+\end{eulerttcomment}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+\int \frac {sin(4xy)} {4y} dx
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerttcomment}
+ misalkan u = 4xy maka
+\end{eulerttcomment}
+\begin{eulerformula}
+\[
+\frac {du} {dx} = 4y
+\]
+\end{eulerformula}
+\begin{eulerformula}
+\[
+dx = \frac {1} {4y} du
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= \frac {1} {4y} . \frac {1} {4y} \int sin(u) du
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= \frac {1} {16y^2} (-cos(u))
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= - \frac {cos(u)} {16y^2}
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerttcomment}
+ subtitusi u = 4xy
+\end{eulerttcomment}
+\begin{eulerformula}
+\[
+= - \frac {cos(4xy)} {16y^2}
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> $showev('integrate(('integrate(('integrate(g(x,y),x)),x)),x))
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\int {\int {\int {\cos \left(4\,x\,y\right)}{\;dx}}{\;dx}}{\;dx}=-  \frac{\sin \left(4\,x\,y\right)}{64\,y^3}
+\]
+\end{eulerformula}
+\begin{eulerttcomment}
+   Pembuktian:
+\end{eulerttcomment}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+\int - \frac {cos(4xy)} {16y^2} dx
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerttcomment}
+ misalkan u = 4xy maka
+\end{eulerttcomment}
+\begin{eulerformula}
+\[
+\frac {du} {dx} = 4y
+\]
+\end{eulerformula}
+\begin{eulerformula}
+\[
+dx = \frac {1} {4y} du
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= - \frac {1} {16y^2} . \frac {1} {4y} \int cos(u) du
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= - \frac {1} {64y^3} (sin(u))
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= - \frac {sin(u)} {64y^3}
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerttcomment}
+ subtitusi u = 4xy
+\end{eulerttcomment}
+\begin{eulerformula}
+\[
+= - \frac {sin(4xy)} {64y^3}
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> plot3d("g(x,y)"): // grafik
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-184.png}
+\begin{eulercomment}
+\end{eulercomment}
+\eulersubheading{2.2 Integral Fungsi Eksponensial}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerttcomment}
+ # Definisi
+   Integral dari sebuah fungsi eksponensial multivariabel adalah
+\end{eulerttcomment}
+\begin{eulercomment}
+operasi matematika yang menghitung jumlah dari nilai-nilai fungsi
+eksponensial tersebut di suatu wilayah dalam beberapa dimensi. 
+
+\end{eulercomment}
+\begin{eulerttcomment}
+ # Contoh dan Visualisasi Grafik
+\end{eulerttcomment}
+\begin{eulercomment}
+
+1) Integral Tentu
+\end{eulercomment}
+\begin{eulerprompt}
+> function k(x,y) &= E^(x*y); $k(x,y)
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+e^{x\,y}
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> $showev('integrate(k(x,y),x,0,1))
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\int_{0}^{1}{e^{x\,y}\;dx}=\frac{e^{y}}{y}-\frac{1}{y}
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> $showev('integrate(('integrate(k(x,y),x,0,2)),x,0,1))
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\int_{0}^{1}{\int_{0}^{2}{e^{x\,y}\;dx}\;dx}=\frac{e^{2\,y}}{y}-  \frac{1}{y}
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> plot3d("k(x,y)"): // grafik
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-188.png}
+\begin{eulercomment}
+2) Integral Tak Tentu
+\end{eulercomment}
+\begin{eulerprompt}
+> function f(x,y) &= E^x - 2*y; $f(x,y)
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+e^{x}-2\,y
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> $showev('integrate(f(x,y),x))
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\int {e^{x}-2\,y}{\;dx}=e^{x}-2\,x\,y
+\]
+\end{eulerformula}
+\begin{eulerttcomment}
+   Pembuktian:
+\end{eulerttcomment}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+\int e^x - 2y dx
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= \int e^x dx - 2y \int 1 dx
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= e^x - 2xy
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> plot3d("f(x,y)"):
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-194.png}
+\begin{eulercomment}
+\end{eulercomment}
+\eulersubheading{2.2 Integral Fungsi Logaritma}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerttcomment}
+ # Definisi
+   Integral fungsi logaritma multivariabel adalah bentuk integral yang
+\end{eulerttcomment}
+\begin{eulercomment}
+melibatkan fungsi logaritma yang melibatkan dua atau lebih variabel.
+Integral ini dapat dihitung dengan menggunakan teknik-teknik kalkulus
+seperti integral ganda dan integral tiga kali lipat. 
+
+\end{eulercomment}
+\begin{eulerttcomment}
+ # Contoh dan Visualisasi Grafik
+\end{eulerttcomment}
+\begin{eulercomment}
+
+1) Integral Tentu
+\end{eulercomment}
+\begin{eulerprompt}
+> function t(x,y) &= ln(x) + ln(y); $t(x,y)
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\log y+\log x
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> $showev('integrate(t(x,y),x,0,1))
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\int_{0}^{1}{\log y+\log x\;dx}=\log y-1
+\]
+\end{eulerformula}
+\begin{eulerttcomment}
+   Pembuktian:
+\end{eulerttcomment}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+\int_0^1 ln(y) + ln(x) dx
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= \int ln(x) dx + ln(y) \int 1 dx
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= (xln(x) - x) + ln(y)x
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= \left [xln(x) + ln(y)x - x \right]_0^1
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= (1.ln(1) + ln(y).1 - 1) - (0 + 0 - 0)
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= 0 + ln(y) - 1
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= ln(y) - 1
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerttcomment}
+   # Pada penggambaran grafik menggunakan fungsi implicit
+ Fungsi implisit (implicit function) adalah fungsi yang memuat lebih
+\end{eulerttcomment}
+\begin{eulercomment}
+dari satu variabel, berjenis variabel bebas dan variabel terikat yang
+berada dalam satu ruas sehingga tidak bisa dipisahkan pada ruas yang
+berbeda.
+\end{eulercomment}
+\begin{eulerprompt}
+> plot3d("t(x,y)",r=3,implicit=3,contourcolor=red,angle=90°):
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-204.png}
+\begin{eulercomment}
+2) Integral Tak Tentu
+\end{eulercomment}
+\begin{eulerprompt}
+> function g(x,y) &= ln(x+y); $g(x,y)
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\log \left(y+x\right)
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> $showev('integrate(g(x,y),y))
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\int {\log \left(y+x\right)}{\;dy}=\left(y+x\right)\,\log \left(y+x  \right)-y-x
+\]
+\end{eulerformula}
+\begin{eulerttcomment}
+   Pembuktian:
+\end{eulerttcomment}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+\int ln(x+y) dy
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerttcomment}
+   misalkan u = x + y maka
+\end{eulerttcomment}
+\begin{eulerformula}
+\[
+\frac {du} {dy} = 1 \to dy = du
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= \int ln(u) du
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= uln(u) - u
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerttcomment}
+   subtitusi u = x + y
+\end{eulerttcomment}
+\begin{eulerformula}
+\[
+= (x + y) ln(x + y) - (x + y)
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= (x + y) (ln(x + y) - 1)
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> plot3d("g(x,y)",r=4,implicit=3,contourcolor=red): // grafik
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-213.png}
+\begin{eulercomment}
+\begin{eulercomment}
+\eulerheading{3. Integral Fungsi Komposisi}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerttcomment}
+ # Definisi
+   Integral dari fungsi komposisi multivariabel adalah integral dari
+\end{eulerttcomment}
+\begin{eulercomment}
+fungsi yang didefinisikan sebagai hasil komposisi dari dua atau lebih
+fungsi dalam beberapa variabel
+
+\end{eulercomment}
+\begin{eulerttcomment}
+ # Contoh dan Visualisasi Grafik
+\end{eulerttcomment}
+\begin{eulercomment}
+
+1) Integral Tentu
+\end{eulercomment}
+\begin{eulerprompt}
+> function f(x,y) &= x^2*y + 2*x*y; $f(x,y)
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+x^2\,y+2\,x\,y
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> function g(x,y) &= y^2 - x*y; $g(x,y)
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+y^2-x\,y
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> $showev('integrate(g(f(x,y),y),x,0,1))
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\int_{0}^{1}{y^2-y\,\left(x^2\,y+2\,x\,y\right)\;dx}=-\frac{y^2}{3}
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerttcomment}
+   Pembuktian:
+\end{eulerttcomment}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+\int_0^1 y^2 - y(x^2y+2xy) dx
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= \int y^2 - x^2y^2 - 2xy^2 dx
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= y^2 \int 1 dx - y^2 \int x^2 dx - 2y^2 \int x dx
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= y^2 (x) - y^2 (\frac {x^3} {3}) - 2y^2 (\frac {x^2} {2})
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= xy^2 - \frac {x^3y^2} {3} - x^2y^2
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= \left[ xy^2 - \frac {x^3y^2} {3} - x^2y^2 \right]_0^1
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= (y^2 - \frac {y^3} {3} - y^2) - 0
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= - \frac {y^2} {3}
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> plot3d("g(f(x,y),y)"): // grafik
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-225.png}
+\begin{eulercomment}
+2) Integral Tak Tentu
+\end{eulercomment}
+\begin{eulerprompt}
+> function h(x,y) &= x*y - 2; $h(x,y)
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+x\,y-2
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> function k(x,y) &= x^2 - y^2; $k(x,y)
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+x^2-y^2
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> $showev('integrate(h(x,k(x,y)),y))
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+\int {x\,\left(x^2-y^2\right)-2}{\;dy}=x\,\left(x^2\,y-\frac{y^3}{3  }\right)-2\,y
+\]
+\end{eulerformula}
+\begin{eulerttcomment}
+   Pembuktian:
+\end{eulerttcomment}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+\int x(x^2-y^2) - 2 dy
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= \int x^3 - xy^2 - 2 dy
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= \int (x^3 - 2) dy - \int xy^2 dy
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= (x^3 - 2) \int 1 dy - x \int y^2 dy
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= (x^3 - 2)y - \frac {xy^3} {3}
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= (x^3y - \frac {xy^3} {3}) - 2y
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= x(x^2y - \frac {xy^3} {3}) - 2y
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> plot3d("h(k(x,y),y)"): // grafik
+\end{eulerprompt}
+\eulerimg{27}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-236.png}
+\eulerheading{C. Aplikasi Fungsi Multivariabel}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerttcomment}
+  # Kurvatur (Kelengkungan Kurva)
+\end{eulerttcomment}
+\begin{eulercomment}
+\end{eulercomment}
+\eulerimg{20}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-237.png}
+\begin{eulercomment}
+Aslinya, kelengkungan kurva diferensiabel (yakni, kurva mulus yang
+tidak lancip) di titik P didefinisikan melalui lingkaran oskulasi
+(yaitu, lingkaran yang melalui titik P dan terbaik memperkirakan,
+paling banyak menyinggung kurva di sekitar P). Pusat dan radius
+kelengkungan kurva di P adalah pusat dan radius lingkaran oskulasi.
+Kelengkungan adalah kebalikan dari radius kelengkungan:
+
+\end{eulercomment}
+\begin{eulerformula}
+\[
+\kappa =\frac {1}{R}
+\]
+\end{eulerformula}
+\begin{eulercomment}
+dengan R adalah radius kelengkungan. (Setiap lingkaran memiliki
+kelengkungan ini pada setiap titiknya, dapat diartikan, setiap
+lingkaran berputar 2pi sejauh 2piR.)\\
+Definisi ini sulit dimanipulasi dan dinyatakan ke dalam rumus untuk
+kurva umum. Oleh karena itu digunakan definisi lain yang ekivalen.
+
+\end{eulercomment}
+\eulersubheading{Definisi Kurvatur dengan Fungsi Parametrik Panjang Kurva}
+\begin{eulercomment}
+Setiap kurva diferensiabel dapat dinyatakan dengan persamaan
+parametrik terhadap panjang kurva s:
+
+\end{eulercomment}
+\begin{eulerformula}
+\[
+\gamma(s) = (x(s),\ y(s)),
+\]
+\end{eulerformula}
+\begin{eulercomment}
+dengan x dan y adalah fungsi riil yang diferensiabel, yang memenuhi:
+
+\end{eulercomment}
+\begin{eulerformula}
+\[
+\|\gamma'(s)\|=\sqrt{x'(s)^2+y'(s)^2}=1.
+\]
+\end{eulerformula}
+\begin{eulercomment}
+Ini berarti bahwa vektor singgung
+
+
+\end{eulercomment}
+\begin{eulerformula}
+\[
+\mathbf{T}(s)=(x'(s),\ y'(s))
+\]
+\end{eulerformula}
+\begin{eulercomment}
+memiliki norm 1 dan merupakan vektor singgung satuan.
+
+Apabila kurvanya memiliki turunan kedua, artinya turunan kedua x dan y
+ada, maka T'(s) ada. Vektor ini merupakan normal kurva yang arahnya
+menuju pusat kurvatur, norm-nya merupakan nilai kurvatur
+(kelengkungan):
+
+\end{eulercomment}
+\begin{eulerformula}
+\[
+ \begin{aligned}\mathbf{T}(s) &= \mathbf{\gamma}'(s),\\ \mathbf{T}^{2}(s) &=1\ \text{(konstanta)}\Rightarrow \mathbf{T}'(s)\cdot \mathbf{T}(s)=0\\ \kappa(s) &=\|\mathbf {T}'(s)\|= \|\mathbf{\gamma}''(s)\|=\sqrt{x''(s)^{2}+y''(s)^{2}}.\end{aligned}
+\]
+\end{eulerformula}
+\begin{eulercomment}
+Nilai
+
+\end{eulercomment}
+\begin{eulerformula}
+\[
+R(s)=\frac{1}{\kappa(s)}
+\]
+\end{eulerformula}
+\begin{eulercomment}
+disebut jari-jari (radius) kelengkungan kurva.
+
+Bilangan riil
+
+\end{eulercomment}
+\begin{eulerformula}
+\[
+ k(s) = \pm\kappa(s)
+\]
+\end{eulerformula}
+\begin{eulercomment}
+disebut nilai kelengkungan bertanda.
+
+
+Untuk kurva yang dinyatakan dengan fungsi implisit
+
+\end{eulercomment}
+\begin{eulerformula}
+\[
+F(x,y)=0
+\]
+\end{eulerformula}
+\begin{eulercomment}
+dengan turunan-turunan parsial
+
+\end{eulercomment}
+\begin{eulerformula}
+\[
+F_x=\frac{\partial F}{\partial x},\ F_y=\frac{\partial F}{\partial y},\ F_{xy}=\frac{\partial}{\partial y}\left(\frac{\partial F}{\partial x}\right),\ F_{xx}=\frac{\partial}{\partial x}\left(\frac{\partial F}{\partial x}\right),\ F_{yy}=\frac{\partial}{\partial y}\left(\frac{\partial F}{\partial y}\right),
+\]
+\end{eulerformula}
+\begin{eulercomment}
+berlaku
+
+\end{eulercomment}
+\begin{eulerformula}
+\[
+F_x dx+ F_y dy = 0\text{ atau } \frac{dy}{dx}=-\frac{F_x}{F_y},
+\]
+\end{eulerformula}
+\begin{eulercomment}
+sehingga kurvaturnya adalah
+
+\end{eulercomment}
+\begin{eulerformula}
+\[
+\kappa =\frac {F_y^2F_{xx}-2F_xF_yF_{xy}+F_x^2F_{yy}}{\left(F_x^2+F_y^2\right)^{3/2}}.
+\]
+\end{eulerformula}
+\begin{eulercomment}
+Contoh:\\
+Parabola
+
+\end{eulercomment}
+\begin{eulerformula}
+\[
+y=ax^2+bx+c
+\]
+\end{eulerformula}
+\begin{eulercomment}
+dapat dinyatakan ke dalam persamaan implisit
+
+\end{eulercomment}
+\begin{eulerformula}
+\[
+ax^2+bx+c-y=0.
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> function F(x,y) &= a*x^2+b*x+c-y; $F(x,y)
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+-y+a\,x^2+b\,x+c
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> Fx &= diff(F(x,y),x); Fxx &=diff(F(x,y),x,2); Fy &=diff(F(x,y),y); Fxy &=diff(diff(F(x,y),x),y); Fyy &=diff(F(x,y),y,2); $Fx, $Fxx, $Fy, $Fxy, $Fyy
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+0
+\]
+\end{eulerformula}
+\eulerimg{0}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-253-large.png}
+\eulerimg{0}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-254-large.png}
+\eulerimg{0}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-255-large.png}
+\eulerimg{0}{images/BAB 7_Fungsi Multivariabel_Latifah Nurfitriyani_22305141010-256-large.png}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerttcomment}
+   Pembuktian
+\end{eulerttcomment}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+\kappa =\frac {F_y^2F_{xx}-2F_xF_yF_{xy}+F_x^2F_{yy}}{\left(F_x^2+F_y^2\right)^{3/2}}.
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= \frac {(-1)^2(2a) - 2(2ax+b)(-1)(0) + (2ax+b)^2(0)} {((2ax+b)^2 + (-1)^2)^{\frac {3} {2}}}
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= \frac {2a - 0 + 0} {((2ax+b)^2 + 1)^{\frac {3} {2}}}
+\]
+\end{eulerformula}
+\begin{eulercomment}
+\end{eulercomment}
+\begin{eulerformula}
+\[
+= \frac {2a} {((2ax+b)^2 + 1)^{\frac {3} {2}}}
+\]
+\end{eulerformula}
+\begin{eulerprompt}
+> function k(x) &= (Fy^2*Fxx-2*Fx*Fy*Fxy+Fx^2*Fyy)/(Fx^2+Fy^2)^(3/2); $'k(x)=k(x) // kurvatur parabola tersebut
+\end{eulerprompt}
+\begin{eulerformula}
+\[
+k\left(x\right)=\frac{2\,a}{\left(\left(2\,a\,x+b\right)^2+1\right)  ^{\frac{3}{2}}}
+\]
+\end{eulerformula}
+\begin{eulercomment}
+Hasilnya sama dengan sebelumnya yang menggunakan persamaan parabola
+biasa.
+\end{eulercomment}
+\end{eulernotebook}
+\end{document}
